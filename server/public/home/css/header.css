@@ -1,0 +1,154 @@
+/* === LOGO & HEADER === */
+.logo a {
+  all: unset;
+  cursor: pointer;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+  padding: 12px 24px;
+  background-color: #1a1a1a;
+  color: #f0f0f0;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  gap: 12px;
+  border-bottom: 1px solid #333;
+}
+
+.header-left,
+.header-right {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.header-center {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex: 1;
+  overflow: hidden;
+  min-width: 0;
+}
+
+/* === FILTERS & SEARCH === */
+.controls {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+}
+
+#searchBox,
+#typeFilter,
+#locationFilter {
+  padding: 8px;
+  font-size: 16px;
+  border: 1px solid #333;
+  border-radius: 4px;
+  background-color: #1f1f1f;
+  color: #f0f0f0;
+  flex-shrink: 1;
+}
+
+#searchBox {
+  width: 100%;
+  max-width: 300px;
+  min-width: 80px;
+}
+
+#typeFilter,
+#locationFilter {
+  max-width: 140px;
+  min-width: 80px;
+}
+
+/* === USER AUTH === */
+.user-info .login-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #fff;
+  background: #444;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: background 0.3s ease;
+}
+
+.user-info .login-btn:hover {
+  background: #666;
+}
+
+.user-avatar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: bold;
+  color: #f0f0f0;
+}
+
+.circle-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: #555;
+  color: white;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  justify-content: center;
+}
+
+.user-avatar-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.logout-dropdown {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  z-index: 100;
+  padding: 6px 12px;
+  background-color: #222;
+  border: 1px solid #444;
+  border-radius: 6px;
+  display: none;
+}
+
+.logout-dropdown .logout-btn {
+  font-size: 14px;
+  color: hsl(0, 0%, 80%);
+  text-decoration: none;
+  cursor: pointer;
+  transition: color 0.3s ease, transform 0.2s ease;
+  display: inline-block;
+}
+
+.logout-dropdown .logout-btn:hover {
+  color: hsl(0, 0%, 90%);
+}
+
+
+/* === RESPONSIVE === */
+@media (max-width: 480px) {
+  .controls {
+    display: none;
+  }
+  .controls-icons {
+    display: flex;
+    gap: 8px;
+  }
+}
+
+.controls-icons {
+  display: none;
+}

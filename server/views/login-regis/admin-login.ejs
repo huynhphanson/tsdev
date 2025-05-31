@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Đăng nhập Quản trị</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/3f74ce293c.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="/login-regis/css/general.css">
+</head>
+<body>
+  <div class="login-container">
+    <h2><i class="fa-solid fa-shield-halved"></i> Đăng nhập quản trị</h2>
+    
+    <% if (typeof error !== 'undefined') { %>
+      <div class="popup"><%= error %></div>
+    <% } %>
+
+    <form method="POST" action="/admin/login" novalidate>
+      <input type="text" name="username" placeholder="Tên đăng nhập" autocomplete="username" />
+      <input type="password" name="password" placeholder="Mật khẩu" autocomplete="current-password" />
+      <button type="submit"><i class="fa-solid fa-right-to-bracket"></i> Đăng nhập</button>
+    </form>
+  </div>
+</body>
+</html>

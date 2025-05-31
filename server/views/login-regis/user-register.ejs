@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Đăng ký người dùng</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/3f74ce293c.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="/login-regis/css/general.css">
+</head>
+<body>
+  <div class="login-container">
+    <h2><i class="fa-solid fa-user-plus"></i> Đăng ký tài khoản</h2>
+
+    <% if (typeof error !== 'undefined') { %>
+      <div class="popup"><%= error %></div>
+    <% } %>
+
+    <form method="POST" action="/user/register" novalidate>
+      <input type="text" name="username" placeholder="Tên đăng nhập" required />
+      <input type="password" name="password" placeholder="Mật khẩu" required />
+      <input type="password" name="confirm" placeholder="Xác nhận mật khẩu" required />
+      <button type="submit"><i class="fa-solid fa-user-plus"></i> Đăng ký</button>
+    </form>
+
+    <p style="margin-top: 16px;">
+      Đã có tài khoản? <a href="/user/login" style="color: #9ca3af;">Đăng nhập</a>
+    </p>
+  </div>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<div class="card" data-id="<%= p._id %>" data-location="<%= p.location %>">
+  <div class="card-image">
+    <button class="edit-btn"
+      data-client="<%= p.client %>"
+      data-slug="<%= p.slug %>">
+      <i class="fa-solid fa-pen"></i>
+    </button>
+    <a href="/viewer/<%= p.client %>/<%= p.slug %>/" target="_blank" class="card-image">
+    <img src="<%= p.thumbnail %>" alt="<%= p.name %>" loading="lazy" />
+    <div class="card-overlay">
+      <div class="card-title"><%= p.name %></div>
+    </div>
+  </a>
+<div class="card-overlay-bottom">
+  <label class="client-toggle switch" title="Chia sẻ theo client">
+    <input
+      type="checkbox"
+      class="client-access-toggle"
+      data-client="<%= p.client %>"
+      data-slug="<%= p.slug %>"
+      <%= p.clientAccess ? 'checked' : '' %>
+    />
+    <span class="slider-tag"><%= p.client.toUpperCase() %></span>
+  </label>
+
+  <div class="card-actions">
+    <label class="switch">
+      <input
+        type="checkbox"
+        class="share-toggle"
+        data-client="<%= p.client %>"
+        data-slug="<%= p.slug %>"
+        <%= p.shared ? 'checked' : '' %>
+      />
+      <span class="slider"></span>
+    </label>
+    <button class="delete-btn"
+      data-client="<%= p.client %>"
+      data-slug="<%= p.slug %>"
+      onclick="deleteModel(this)">
+      <i class="fa-solid fa-trash"></i>
+    </button>
+
+  </div>
+</div>
+
+  </div>
+  <div class="card-content">
+    <strong><%= p.description %></strong>
+    <p><span class="card-label">Địa điểm:</span> <%= p.location %></p>
+    <p><span class="card-label">Slug:</span> <%= p.slug %></p>
+    <p><span class="card-label">ID:</span> <%= p._id %></p> 
+  </div>
+</div>

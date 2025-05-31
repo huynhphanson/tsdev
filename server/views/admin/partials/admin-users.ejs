@@ -1,0 +1,54 @@
+<div class="user-panel">
+  <h2><i class="fa-solid fa-users"></i> Quản lý người dùng</h2>
+
+  <% if (users && users.length > 0) { %>
+    <table class="user-table">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Tên đăng nhập</th>
+          <th>Phân quyền (Client)</th>
+          <th>Ngày tạo</th>
+          <th>Thao tác</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% users.forEach((user, index) => { %>
+          <tr>
+            <td><%= index + 1 %></td>
+            <td><%= user.username %></td>
+
+            <!-- ✅ Dropdown chọn client -->
+            <td>
+              <select class="client-select" data-id="<%= user._id %>">
+                <option value="General" <%= user.client === 'GENERAL' ? 'selected' : '' %>>GENERAL</option>
+                <option value="T27" <%= user.client === 'T27' ? 'selected' : '' %>>T27</option>
+              </select>
+            </td>
+
+            <td><%= new Date(user.createdAt).toLocaleString() %></td>
+            <td>
+              <button class="btn-small btn-delete" data-id="<%= user._id %>">
+                <i class="fa-solid fa-trash"></i> Xoá
+              </button>
+            </td>
+          </tr>
+        <% }) %>
+      </tbody>
+    </table>
+  <% } else { %>
+    <p>Chưa có người dùng nào.</p>
+  <% } %>
+</div>
+
+<!-- Popup xác nhận xoá -->
+<div id="confirmDeleteModal" class="modal-overlay">
+  <div class="modal-box">
+    <p>Bạn có chắc chắn muốn xoá người dùng này?</p>
+    <div class="modal-actions">
+      <button id="confirmDeleteBtn" class="btn-confirm">Xoá</button>
+      <button id="cancelDeleteBtn" class="btn-cancel">Huỷ</button>
+    </div>
+  </div>
+</div>
+

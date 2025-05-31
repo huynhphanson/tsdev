@@ -1,0 +1,34 @@
+<h1><i class="fa-solid fa-screwdriver-wrench"></i> Thêm mô hình</h1>
+<form id="modelForm" enctype="multipart/form-data">
+  <label>Khách hàng:</label>
+  <select name="client" id="clientSelect">
+    <option value="general" selected>GENERAL</option>
+    <option value="t27">T27</option>
+    <option value="__new">+ Thêm khách hàng mới</option>
+  </select>
+  <input
+    type="text"
+    id="customClient"
+    placeholder="Tên khách hàng mới..."
+    style="display: none; margin-top: 8px;"
+  />
+
+  <label>Tên mô hình:</label>
+  <input type="text" name="name" />
+
+  <label>Slug mô hình:</label>
+  <input type="text" name="slug" placeholder="ví dụ: cau-song-cho" />
+
+  <label>Mô tả:</label>
+  <textarea name="description" rows="3"></textarea>
+
+  <label>Vị trí:</label>
+  <input type="text" name="location" />
+
+  <label>Thumbnail:</label>
+  <input type="file" name="thumbnail" accept="image/*" />
+
+  <button type="submit">
+    <i class="fa-solid fa-floppy-disk"></i> Lưu
+  </button>
+</form>

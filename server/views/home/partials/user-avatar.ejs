@@ -1,0 +1,14 @@
+<% if (username) { %>
+  <div class="user-avatar-wrapper">
+    <div class="user-avatar" id="avatarToggle" title="Xin chào <%= username %>">
+      <div class="circle-avatar"><%= username[0].toUpperCase() %></div>
+    </div>
+    <div class="logout-dropdown" id="logoutDropdown">
+      <a href="/user/logout" class="logout-btn">Đăng xuất</a>
+    </div>
+  </div>
+<% } else { %>
+  <a href="/user/login" class="login-btn">
+    <i class="fa-solid fa-circle-user"></i> Đăng nhập
+  </a>
+<% } %>

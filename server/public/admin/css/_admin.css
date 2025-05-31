@@ -1,0 +1,31 @@
+@import 'admin-TabModels-left.css';
+@import 'admin-TabModels-right.css';
+@import 'admin-editModel.css';
+@import 'admin-TabUsers.css';
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.tab-nav {
+  display: flex;
+  gap: 16px;
+  margin: 16px;
+}
+.tab-link {
+  padding: 8px 16px;
+  background: #333;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+}
+.tab-link.active {
+  background: #4f46e5;
+}
+.tab-panel {
+  display: none;
+}
+.tab-panel.active {
+  display: block;
+}
+

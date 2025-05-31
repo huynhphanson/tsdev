@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>3D Project Gallery - TSDEV</title>
+  <link rel="stylesheet" href="home/css/_home.css" />
+  <script src="https://kit.fontawesome.com/3f74ce293c.js" crossorigin="anonymous"></script>
+</head>
+<body>
+  <div class="container">
+    <!-- Header -->
+    <header class="header">
+      <div class="header-left">
+        <div class="logo"><a href="/">TSDEV</a></div>
+      </div>
+
+      <div class="header-center">
+        <div class="controls">
+          <input type="text" id="searchBox" placeholder="Tìm kiếm mô hình..." />
+          <select id="locationFilter">
+            <option value="">Tất cả địa điểm</option>
+            <% const locations = [...new Set(projects.map(p => p.location))]; %>
+            <% locations.forEach(loc => { %>
+              <option value="<%= loc %>"><%= loc %></option>
+            <% }) %>
+          </select>
+        </div>
+        <div class="controls-icons">
+          <button id="filterIcon" class="icon-btn">⚙️</button>
+        </div>
+      </div>
+
+      <div class="header-right">
+        <div class="user-info">
+          <!-- <%- include('./partials/user-avatar', { username }) %> -->
+        </div>
+      </div>
+    </header>
+
+    <!-- Main -->
+    <main class="main">
+      <div class="gallery-wrapper">
+        <div id="gallery" class="grid">
+          <% if (projects.length > 0) { %>
+            <% projects.forEach(p => { %>
+              <div class="card" data-type="<%= p.type %>" data-location="<%= p.location %>">
+                <a href="/viewer/<%= p.client %>/<%= p.slug %>/" target="_blank" class="card-image">
+                  <img src="<%= p.thumbnail %>" alt="<%= p.name %>" loading="lazy">
+                  <div class="card-overlay">
+                    <div class="card-title"><%= p.name %></div>
+                  </div>
+                </a>
+                <div class="card-content">
+                  <p><span class="card-description"><%= p.description %></span></p>
+                  <p><span class="card-label">Địa điểm:</span> <%= p.location %></p>
+                </div>
+              </div>
+            <% }) %>
+          <% } else { %>
+            <p>Không có mô hình nào để hiển thị.</p>
+          <% } %>
+        </div>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer-content">
+        © 2025 TSDEV
+      </div>
+    </footer>
+  </div>
+
+  <script type="module" src="/home/js/home-main.js"></script>
+
+</body>
+</html>

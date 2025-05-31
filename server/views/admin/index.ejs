@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quản lý mô hình 3D</title>
+  <link rel="stylesheet" href="/admin/css/_admin.css" />
+  <script src="https://kit.fontawesome.com/3f74ce293c.js" crossorigin="anonymous"></script>
+</head>
+<body>
+  <!-- Modal chỉnh sửa mô hình -->
+  <%- include('partials/editModel.ejs') %>
+
+  <div class="admin-tabs">
+    <nav class="tab-nav">
+      <a href="#models" class="tab-link active"><i class="fa-solid fa-cube"></i> Mô hình 3D</a>
+      <a href="#users" class="tab-link"><i class="fa-solid fa-users"></i> Người dùng</a>
+    </nav>
+
+    <div class="tab-content">
+      <section id="models" class="tab-panel active">
+        <%- include('partials/admin-models.ejs', { projects }) %>
+      </section>
+
+      <section id="users" class="tab-panel">
+        <%- include('partials/admin-users.ejs', { users }) %>
+      </section>
+    </div>
+  </div>
+
+  <script type="module" src="/admin/js/admin-main.js"></script>
+  <script>
+    // Tab switch logic
+    const tabs = document.querySelectorAll('.tab-link');
+    const panels = document.querySelectorAll('.tab-panel');
+    tabs.forEach(tab => {
+      tab.addEventListener('click', e => {
+        e.preventDefault();
+        tabs.forEach(t => t.classList.remove('active'));
+        panels.forEach(p => p.classList.remove('active'));
+        tab.classList.add('active');
+        const target = document.querySelector(tab.getAttribute('href'));
+        if (target) target.classList.add('active');
+      });
+    });
+  </script>
+</body>
+</html>

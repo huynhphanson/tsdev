@@ -1,0 +1,36 @@
+<div class="container">
+  <div class="left-panel" id="leftPanel">
+    <!-- Form thêm mô hình -->
+    <%- include('./formAddModel.ejs') %>
+  </div>
+
+  <div class="right-panel">
+    <h2><i class="fa-solid fa-book" style="margin-left: 20px;"></i> Danh sách mô hình</h2>
+    <div class="header">
+      <div class="controls">
+        <input type="text" id="searchBox" placeholder="Tìm mô hình..." />
+        <select id="locationFilter">
+          <option value="">Tất cả địa điểm</option>
+          <% const locations = [...new Set(projects.map(p => p.location).filter(Boolean))]; %>
+          <% locations.forEach(loc => { %>
+            <option value="<%= loc %>"><%= loc %></option>
+          <% }) %>
+        </select>
+      </div>
+    </div>
+
+    <main class="main">
+      <div class="gallery-wrapper">
+        <div id="gallery" class="grid">
+          <% if (projects && projects.length > 0) { %>
+            <% projects.forEach(p => { %>
+              <%- include('./cards.ejs', { p }) %>
+            <% }) %>
+          <% } else { %>
+            <p>Chưa có mô hình nào.</p>
+          <% } %>
+        </div>
+      </div>
+    </main>
+  </div>
+</div>

@@ -1,0 +1,39 @@
+.circle-button {
+  position: fixed;
+  right: 4px;
+
+  font-size: 8px;
+  width: 1.5em;
+  height: 1.5em;
+
+  background: linear-gradient(135deg, rgba(251, 191, 36, 0.85), rgba(253, 186, 116, 0.75)); /* cam pastel */
+  color: #fff;
+  font-weight: bold;
+  border-radius: 50%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+
+  backdrop-filter: blur(6px) saturate(160%);
+  -webkit-backdrop-filter: blur(6px) saturate(160%);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+
+  z-index: 9999;
+  transition: all 0.25s ease;
+}
+
+.circle-button:hover {
+  background: linear-gradient(135deg, rgba(249, 115, 22, 0.95), rgba(251, 146, 60, 0.95)); /* cam đậm khi hover */
+  transform: scale(1.12);
+  box-shadow: 0 10px 24px rgba(249, 115, 22, 0.4);
+}
+
+
+
+/* Tùy chỉnh vị trí từng nút */
+#close-temp-points     { top: 4px; }
+#ruler-clear-button    { top: 125px; }
+#area-clear-button     { top: 160px; }

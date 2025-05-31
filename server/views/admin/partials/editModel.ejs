@@ -1,0 +1,22 @@
+<div id="editModal" class="edit-panel">
+  <div class="edit-content">
+    <h2><i class="fa-solid fa-pen"></i> Chỉnh sửa mô hình</h2>
+    <form id="editForm" enctype="multipart/form-data">
+      <input type="hidden" name="id" />
+      <label>Tên:</label>
+      <input type="text" name="name" required />
+      <label>Slug:</label>
+      <input type="text" name="slug" required />
+      <label>Mô tả:</label>
+      <textarea name="description" rows="2" required></textarea>
+      <label>Vị trí:</label>
+      <input type="text" name="location" />
+      <label>Thumbnail mới (tuỳ chọn):</label>
+      <input type="file" name="thumbnail" accept="image/*" />
+      <div class="edit-actions">
+        <button type="submit"><i class="fa-solid fa-floppy-disk"></i> Lưu</button>
+        <button type="button" id="cancelEdit"><i class="fa-solid fa-xmark"></i> Hủy</button>
+      </div>
+    </form>
+  </div>
+</div>

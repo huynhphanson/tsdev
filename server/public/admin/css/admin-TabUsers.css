@@ -1,0 +1,83 @@
+.user-panel {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 20px;
+  font-size: 14px;
+}
+
+.user-panel h2 {
+  margin-bottom: 12px;
+  font-size: 18px;
+}
+
+.user-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #1a1a1f;
+  color: #eee;
+}
+
+.user-table th,
+.user-table td {
+  padding: 6px 10px;
+  border: 1px solid #333;
+  text-align: left;
+  vertical-align: middle;
+  white-space: nowrap;
+  font-size: 13px;
+  line-height: 1.4;
+  max-height: 42px;
+}
+
+.user-table th {
+  background: #2d2d3a;
+  font-weight: 600;
+}
+
+.user-table tr:nth-child(even) {
+  background-color: #1f1f2a;
+}
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+
+.modal-box {
+  background: #1f1f2a;
+  padding: 20px;
+  border-radius: 8px;
+  width: 300px;
+  color: white;
+  box-shadow: 0 0 12px #000;
+  text-align: center;
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 16px;
+}
+
+.btn-confirm {
+  background: #e53e3e;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.btn-cancel {
+  background: #444;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+}

@@ -30,7 +30,7 @@ async function checkSharePermission(req, res, next) {
 // ✅ Redirect tới file static đã public sẵn
 router.get('/viewer/:client/:slug/', checkSharePermission, (req, res) => {
   const { client, slug } = req.projectEntry;
-  return res.redirect(`/_viewer/${client}/${slug}/`);
+  return res.redirect(`/viewer/${client}/${slug}/`);
 });
 
 export default router;

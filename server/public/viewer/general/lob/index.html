@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<script src="https://cesium.com/downloads/cesiumjs/releases/1.97/Build/Cesium/Cesium.js"></script>
+    <link rel="stylesheet" href="https://cesium.com/downloads/cesiumjs/releases/1.97/Build/Cesium/Widgets/widgets.css">
+		<script type="module" crossorigin src="./assets/index-BMPHGIvg.js"></script>
+		<link rel="stylesheet" crossorigin href="./assets/index-ipBWfVzU.css">
+	</head>
+	<body>
+		<div id="loading-overlay">
+			<div class="spinner"></div>
+		</div>			
+		<div class="sidenav-left">
+			<div class="icon-bar-left">
+				<i class="fa-solid fa-info info-project-btn"></i>
+			</div>
+		</div>
+		<div id="cesium-container" style="width: 100vw; height: 100vh"></div>
+		<div class="three-container" style="position: absolute; top: 0; left: 0; pointer-events: auto;">
+			<div class="sidenav-right">
+				<div class="icon-bar-right">
+					<i class="fa-solid fa-magnifying-glass menu-btn" data-panel="search-panel" data-tooltip="Tìm kiếm"></i>
+					<i class="fa-solid fa-layer-group menu-btn" data-panel="layer-panel" data-tooltip="Lớp"></i>
+					<i class="fa-solid fa-tags menu-btn" data-panel="tag-panel" data-tooltip="Nhãn"></i>
+					<i class="fa-solid fa-map menu-btn" data-panel="map-panel" data-tooltip="Bản đồ"></i>
+					<i class="fa-solid fa-ruler" data-tooltip="Chiều dài"></i>
+					<i class="fa-solid fa-draw-polygon" data-tooltip="Diện tích"></i>
+					<i class="fa-solid fa-location-dot btn-project-location" data-tooltip="Vị trí"></i>
+				</div>
+				<div class="panel-container">
+					<div id="search-panel" class="panel">
+						<label for="" class="title-label">Search</label>
+						<input type="search" class="search-input" placeholder="...">
+						<i class="fa-solid fa-magnifying-glass btn-search"></i>
+					</div>
+					<div id="layer-panel" class="panel">
+						<label for="" class="title-label">Layer</label>
+						<div id="layerContent" ></div>
+					</div>
+					<div id="tag-panel" class="panel">
+						<label for="" class="title-label">Properties</label>
+						<div id="infoContent" ></div>
+					</div>
+					<div id="map-panel" class="panel">
+						<label for="" class="title-label">Basemap</label>
+						<div id="basemapGallery" class="basemap-gallery">
+							<div class="basemap-item" data-type="streets">
+								<img src="assets/img/basemap/standard.png" alt="Bản đồ">
+								<span>BẢN ĐỒ</span>
+							</div>
+							<div class="basemap-item" data-type="hybrid">
+								<img src="assets/img/basemap/satellite.png" alt="Vệ tinh">
+								<span>VỆ TINH</span>
+							</div>
+							<div class="basemap-item" data-type="none">
+								<img src="assets/img/basemap/none.png" alt="none">
+								<span>KHÔNG NỀN</span>
+							</div>
+						</div>
+					</div>					
+				</div>
+			</div>
+			<div class="sidenav-right-bottom"></div>
+		</div>
+		<script src="https://kit.fontawesome.com/3f74ce293c.js" crossorigin="anonymous"></script>
+	</body>
+</html>

@@ -1,42 +1,43 @@
 {
   "client": "T27",
   "slug": "TL8B",
+  "title": "Tỉnh Lộ 8B",
   "objectStorage": "https://assets.tsdev.host",
   "models": {
     "3dtiles": [
       {
         "label": "HIỆN TRẠNG SÔNG CHÒ/PHẠM VI TRONG RANH",
-        "path": "3d-tiles/scIn/tileset.json"
+        "path": "models/3d-tiles/scIn/tileset.json"
       },
       {
         "label": "HIỆN TRẠNG SÔNG CHÒ/PHẠM VI NGOÀI RANH",
-        "path": "3d-tiles/scOut/tileset.json"
+        "path": "models/3d-tiles/scOut/tileset.json"
       },
       {
         "label": "HIỆN TRẠNG SÔNG GIANG/PHẠM VI TRONG RANH",
-        "path": "3d-tiles/sgIn/tileset.json"
+        "path": "models/3d-tiles/sgIn/tileset.json"
       },
       {
         "label": "HIỆN TRẠNG SÔNG GIANG/PHẠM VI NGOÀI RANH",
-        "path": "3d-tiles/sgOut/tileset.json"
+        "path": "models/3d-tiles/sgOut/tileset.json"
       }
     ],
     "gltf": [
       {
         "label": "HIỆN TRẠNG SÔNG CHÒ/RANH GPMB",
-        "path": "glb/sChoGPMB.glb"
+        "path": "models/glb/sChoGPMB.glb"
       },
       {
         "label": "MÔ HÌNH BIM/CẦU SÔNG CHÒ",
-        "path": "glb/sChoBridge.glb"
+        "path": "models/glb/sChoBridge.glb"
       },
       {
         "label": "MÔ HÌNH BIM/ĐƯỜNG DẪN",
-        "path": "glb/sChoDuongDan.glb"
+        "path": "models/glb/sChoDuongDan.glb"
       },
       {
         "label": "HIỆN TRẠNG SÔNG GIANG/RANH GPMB",
-        "path": "glb/sGiangGPMB.glb"
+        "path": "models/glb/sGiangGPMB.glb"
       }
     ],
     "csv": [

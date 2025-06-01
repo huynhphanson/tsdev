@@ -14,7 +14,7 @@ import { drawPolylineFromCSV } from './three/three-drawPol.js';
 export async function loadModelsFromConfig(config, scene, camera, renderer, controls) {
   const tilesModels = new Map();
 
-  const basePath = `${config.objectStorage}/${config.client}/${config.slug}/assets/models/`;
+  const basePath = `${config.objectStorage}/${config.client}/${config.slug}/assets/`;
 
   const tilePromises = (config.models['3dtiles'] || []).map(async (m, idx) => {
     const model = await load3dTilesModel(
@@ -24,11 +24,11 @@ export async function loadModelsFromConfig(config, scene, camera, renderer, cont
   });
 
   const gltfPromises = (config.models['gltf'] || []).map((m, idx) =>
-    loadGLTFModel(`./assets/models/${m.path}`, scene, camera, controls, m.label)
+    loadGLTFModel(`${basePath}${m.path}`, scene, camera, controls, m.label)
   );
 
   const linePromises = (config.models['csv'] || []).map((l, idx) =>
-    drawPolylineFromCSV(`./assets/${l.path}`, scene, camera, controls, l.label, l.size, l.height)
+    drawPolylineFromCSV(`${basePath}${l.path}`, scene, camera, controls, l.label, l.size, l.height)
   );
 
   await Promise.all([...tilePromises, ...gltfPromises, ...linePromises]);

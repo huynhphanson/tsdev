@@ -43,6 +43,9 @@ const tilesModels = new Map();
 (async () => {
   try {
     config = await loadConfig(); // gán vào biến toàn cục
+    if (config?.title) {
+      document.title = config.title;
+    }
 
     // ✅ Gán EPSG từ projectInfo nếu tìm thấy
     const epsgItem = config.projectInfo?.find(item =>

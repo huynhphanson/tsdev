@@ -1,16 +1,23 @@
 export async function loadConfig() {
-  // Lấy slug từ URL, ví dụ: ?slug=TL8B hoặc /viewer/TL8B
-  const searchParams = new URLSearchParams(window.location.search);
-  let slug = searchParams.get('slug');
-  if (!slug) {
-    const parts = window.location.pathname.split('/');
-    slug = parts[parts.length - 1] || parts[parts.length - 2]; // xử lý /viewer/slug hoặc /viewer/slug/
-  }
+  const { client, slug } = parseViewerURL();
 
-  const res = await fetch(`/configs/${slug}.json`);
-  if (!res.ok) {
-    throw new Error(`Không tìm thấy cấu hình: ${slug}.json`);
+  try {
+    const res = await fetch(`/configs/${client}/${slug}.json`);
+    if (!res.ok) throw new Error(`[loadConfig] Không tìm thấy config: ${client}/${slug}`);
+    const config = await res.json();
+    return config;
+  } catch (err) {
+    console.error(err);
+    throw err;
   }
+}
 
-  return await res.json();
+export function parseViewerURL() {
+  const pathSegments = window.location.pathname.split('/').filter(Boolean);
+
+  const last = pathSegments.length;
+  return {
+    client: pathSegments[last - 2],
+    slug: pathSegments[last - 1],
+  };
 }

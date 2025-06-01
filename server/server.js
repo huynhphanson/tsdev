@@ -2,8 +2,8 @@ import express from 'express';
 import dotenv from 'dotenv';
 dotenv.config();
 
-import { configViewEngine } from './config/configViewEngine.js';
-import connectProjectDB from './config/connectProjectDB.js';
+import { configViewEngine } from './configs/configViewEngine.js';
+import connectProjectDB from './configs/connectProjectDB.js';
 import adminRoutes from './routes/admin.routes.js';
 import viewerRoutes from './routes/viewer.routes.js';
 import projectApiRoutes from './routes/api/projects.routes.js';

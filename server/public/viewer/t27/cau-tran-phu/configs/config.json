@@ -1,0 +1,24 @@
+{
+  "client": "T27",
+  "slug": "cau-tran-phu",
+  "title": "Cầu Trần Phú",
+  "objectStorage": "https://assets.tsdev.host",
+  "models": {
+    "3dtiles": [
+      {
+        "label": "MÔ HÌNH HIỆN TRẠNG",
+        "path": "models/3d-tiles/cau-tran-phu/tileset.json"
+      }
+    ]
+  },
+  "projectInfo": [
+    { "label": "TÊN DỰ ÁN", "value": "KHẢO SÁT HIỆN TRẠNG CẦU TRẦN PHÚ" },
+    { "label": "ĐƠN VỊ THỰC HIỆN", "value": "PHÒNG KHẢO SÁT - CÔNG TY CỔ PHẦN TƯ VẤN T27" },
+    { "label": "THỜI GIAN", "value": "2024" },
+    { "label": "ĐỊA ĐIỂM", "value": "THÀNH PHỐ NHA TRANG, TỈNH KHÁNH HÒA" },
+    { "label": "MÔ HÌNH 3D", "value": "3D TILES" },
+    { "label": "ĐỊNH DẠNG DỮ LIỆU", "value": "3D TILES (.JSON, .B3DM)"},
+    { "label": "THIẾT BỊ KHẢO SÁT", "value": "DJI ZENMUSE L1" },
+    { "label": "HỆ TỌA ĐỘ", "value": "VN-2000/TM-3 108°15 - EPSG:9217" }
+  ]
+}

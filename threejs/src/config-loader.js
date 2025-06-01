@@ -15,9 +15,10 @@ export async function loadConfig() {
 export function parseViewerURL() {
   const pathSegments = window.location.pathname.split('/').filter(Boolean);
 
-  const last = pathSegments.length;
+  // Đảm bảo đúng với URL kiểu: /viewer/:client/:slug/
+  const viewerIndex = pathSegments.indexOf('viewer');
   return {
-    client: pathSegments[last - 3],
-    slug: pathSegments[last - 2],
+    client: pathSegments[viewerIndex + 1],
+    slug: pathSegments[viewerIndex + 2],
   };
 }

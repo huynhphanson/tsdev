@@ -7,23 +7,17 @@ import { dirname } from 'path';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
-export function configViewEngine (app) {
-  // Session cấu hình
+export function configViewEngine(app) {
   app.use(session({
     secret: process.env.SESSION_SECRET || 'defaultSecret',
     resave: false,
     saveUninitialized: false,
-    cookie: {
-      maxAge: 1000 * 60 * 60 * 2 // 2 tiếng
-    }
+    cookie: { maxAge: 1000 * 60 * 60 * 2 }
   }));
 
-  // View engine
   app.set('view engine', 'ejs');
   app.set('views', path.join(__dirname, '..', 'views'));
 
-  // Static files
   app.use(express.static(path.join(__dirname, '..', 'public')));
-  app.use('/configs', express.static(path.join(__dirname, 'public/configs')));
-
+  app.use('/configs', express.static(path.join(__dirname, '..', 'public/configs')));
 }

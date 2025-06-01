@@ -19,5 +19,6 @@ export function configViewEngine(app) {
   app.set('views', path.join(__dirname, '..', 'views'));
 
   app.use(express.static(path.join(__dirname, '..', 'public')));
-  app.use('/configs', express.static(path.join(__dirname, '..', 'public/configs')));
+  app.use(express.static(path.join(__dirname, 'public')));
+
 }

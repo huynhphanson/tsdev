@@ -17,7 +17,7 @@ export function parseViewerURL() {
 
   const last = pathSegments.length;
   return {
-    client: pathSegments[last - 2],
-    slug: pathSegments[last - 1],
+    client: pathSegments[last - 3],
+    slug: pathSegments[last - 2],
   };
 }

@@ -1,6 +1,6 @@
-import { projectInfo } from "./generateInfoHTML";
+export function initProjectInfo(config) {
+  const infoList = config.projectInfo || [];
 
-export function initProjectInfo() {
   const existing = document.getElementById('project-overlay');
   if (existing) {
     const panel = document.getElementById('project-panel');
@@ -21,12 +21,11 @@ export function initProjectInfo() {
   const panel = document.createElement('div');
   panel.id = 'project-panel';
 
-  // Tạo nội dung từ mảng
   const content = document.createElement('div');
   content.innerHTML = `
     <h3 style="text-transform: uppercase;">Thông tin dự án</h3>
     <table style="width: 100%; border-spacing: 6px;">
-      ${projectInfo.map(item => `
+      ${infoList.map(item => `
         <tr>
           <td style="font-weight: bold; color: #ddd;">${item.label.toUpperCase()}</td>
           <td style="color: #fff;">${item.value.toUpperCase()}</td>
@@ -35,9 +34,7 @@ export function initProjectInfo() {
     </table>
   `;
 
-
   panel.appendChild(content);
-
   overlay.appendChild(panel);
   document.body.appendChild(overlay);
 

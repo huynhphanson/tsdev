@@ -1,0 +1,67 @@
+{
+  "client": "T27",
+  "slug": "TL8B",
+  "objectStorage": "https://assets.tsdev.host",
+  "models": {
+    "3dtiles": [
+      {
+        "label": "HIỆN TRẠNG SÔNG CHÒ/PHẠM VI TRONG RANH",
+        "path": "3d-tiles/scIn/tileset.json"
+      },
+      {
+        "label": "HIỆN TRẠNG SÔNG CHÒ/PHẠM VI NGOÀI RANH",
+        "path": "3d-tiles/scOut/tileset.json"
+      },
+      {
+        "label": "HIỆN TRẠNG SÔNG GIANG/PHẠM VI TRONG RANH",
+        "path": "3d-tiles/sgIn/tileset.json"
+      },
+      {
+        "label": "HIỆN TRẠNG SÔNG GIANG/PHẠM VI NGOÀI RANH",
+        "path": "3d-tiles/sgOut/tileset.json"
+      }
+    ],
+    "gltf": [
+      {
+        "label": "HIỆN TRẠNG SÔNG CHÒ/RANH GPMB",
+        "path": "glb/sChoGPMB.glb"
+      },
+      {
+        "label": "MÔ HÌNH BIM/CẦU SÔNG CHÒ",
+        "path": "glb/sChoBridge.glb"
+      },
+      {
+        "label": "MÔ HÌNH BIM/ĐƯỜNG DẪN",
+        "path": "glb/sChoDuongDan.glb"
+      },
+      {
+        "label": "HIỆN TRẠNG SÔNG GIANG/RANH GPMB",
+        "path": "glb/sGiangGPMB.glb"
+      }
+    ],
+    "csv": [
+      {
+        "label": "HIỆN TRẠNG SÔNG CHÒ/TIM KHẢO SÁT",
+        "path": "csv/SongCho_CenterLine.csv",
+        "size": 40,
+        "height": 100
+      },
+      {
+        "label": "HIỆN TRẠNG SÔNG GIANG/TIM KHẢO SÁT",
+        "path": "csv/SongGiang_CenterLine.csv",
+        "size": 10,
+        "height": 100
+      }
+    ]
+  },
+  "projectInfo": [
+    { "label": "TÊN DỰ ÁN", "value": "XÂY DỰNG MỚI THAY THẾ 03 CẦU: THÁC NGỰA, SÔNG GIANG, SÔNG CHÒ TRÊN TUYẾN TỈNH LỘ 8B, HUYỆN KHÁNH VĨNH" },
+    { "label": "ĐƠN VỊ THỰC HIỆN", "value": "PHÒNG KHẢO SÁT - CÔNG TY CỔ PHẦN TƯ VẤN T27" },
+    { "label": "THỜI GIAN", "value": "2024" },
+    { "label": "ĐỊA ĐIỂM", "value": "HUYỆN KHÁNH VĨNH, TỈNH KHÁNH HÒA" },
+    { "label": "MÔ HÌNH 3D", "value": "3D TILES, BIM IFC" },
+    { "label": "ĐỊNH DẠNG DỮ LIỆU", "value": "3D TILES (.JSON, .B3DM), .IFC" },
+    { "label": "THIẾT BỊ KHẢO SÁT", "value": "DJI ZENMUSE L1" },
+    { "label": "HỆ TỌA ĐỘ", "value": "VN-2000/TM-3 108°15 - EPSG:9217" }
+  ]
+}

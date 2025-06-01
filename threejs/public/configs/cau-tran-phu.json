@@ -1,0 +1,13 @@
+{
+  "client": "T27",
+  "slug": "cau-tran-phu",
+  "objectStorage": "https://assets.tsdev.host",
+  "models": {
+    "3dtiles": [
+      {
+        "label": "MÔ HÌNH HIỆN TRẠNG",
+        "path": "3d-tiles/cau-tran-phu/tileset.json"
+      }
+    ]
+  }
+}

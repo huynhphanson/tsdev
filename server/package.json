@@ -4,16 +4,15 @@
   "main": "server.js",
   "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js",
-    "dev": "nodemon server.js",
-    "sync-viewer": "bash ../scripts/build-viewer.sh"
+    "dev": "dotenv -e .env.dev nodemon server.js",
+    "start": "dotenv -e .env.prod node server.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "description": "",
   "devDependencies": {
+    "dotenv-cli": "^8.0.0",
     "nodemon": "^3.1.10"
   },
   "dependencies": {

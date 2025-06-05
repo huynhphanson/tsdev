@@ -12,6 +12,8 @@ import authUserRoutes from './routes/auth.user.routes.js';
 import Project from './models/Project.js';
 import checkSharePermission from './middlewares/checkSharePermission.js';
 
+console.log('NODE_ENV =', process.env.NODE_ENV);
+console.log('DB_URI =', process.env.DB_URI);
 
 
 const app = express();

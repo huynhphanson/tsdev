@@ -7,7 +7,7 @@
     "3dtiles": [
       {
         "label": "MÔ HÌNH HIỆN TRẠNG",
-        "path": "models/3d-tiles/pve-quang-ngai/tileset.json"
+        "path": "/models/3d-tiles/pve-quang-ngai/tileset.json"
       }
     ]
   },

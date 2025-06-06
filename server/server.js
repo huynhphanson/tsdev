@@ -1,4 +1,5 @@
 import express from 'express';
+import cors from 'cors';
 import dotenv from 'dotenv';
 dotenv.config();
 
@@ -11,6 +12,7 @@ import authAdminRoutes from './routes/auth.admin.routes.js';
 import authUserRoutes from './routes/auth.user.routes.js';
 import Project from './models/Project.js';
 import checkSharePermission from './middlewares/checkSharePermission.js';
+import modelsRoutes from './routes/api/models.routes.js';
 
 console.log('NODE_ENV =', process.env.NODE_ENV);
 
@@ -19,6 +21,13 @@ const PORT = process.env.PORT || 3008;
 
 // ✅ Kết nối DB
 connectProjectDB();
+app.use(cors({
+  origin: [
+    'http://localhost:5173',
+    'http://localhost:4173'
+  ],
+  credentials: true
+}));
 
 
 
@@ -34,6 +43,9 @@ configViewEngine(app);
 // ✅ Auth & routes
 app.use(authAdminRoutes);
 app.use(authUserRoutes);
+
+// Models
+app.use('/api', modelsRoutes);
 
 // ✅ Admin & API
 app.use('/admin', adminRoutes);

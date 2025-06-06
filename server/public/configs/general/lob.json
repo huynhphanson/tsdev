@@ -7,7 +7,7 @@
     "3dtiles": [
       {
         "label": "MÔ HÌNH HIỆN TRẠNG",
-        "path": "models/3d-tiles/lob/tileset.json"
+        "path": "/models/3d-tiles/lob/tileset.json"
       }
     ]
   },

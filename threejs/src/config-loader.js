@@ -1,8 +1,9 @@
 export async function loadConfig() {
   const { client, slug } = parseViewerURL();
+  const apiBase = import.meta.env.VITE_API_BASE; // Lấy từ .env
 
   try {
-    const res = await fetch(`/configs/${client}/${slug}.json`);
+    const res = await fetch(`${apiBase}/api/configs/${client}/${slug}`);
     if (!res.ok) throw new Error(`[loadConfig] Không tìm thấy config: ${client}/${slug}`);
     const config = await res.json();
     return config;

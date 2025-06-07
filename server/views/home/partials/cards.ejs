@@ -1,10 +1,16 @@
 <div class="card" data-type="<%= p.type %>" data-location="<%= p.location %>">
-  <a href="/viewer/<%= p.client %>/<%= p.slug %>/" target="_blank" class="card-image">
+  <a 
+    href="http://localhost:5173/viewer/<%= p.client %>/<%= p.slug %>/"
+    data-client="<%= p.client %>" 
+    data-slug="<%= p.slug %>"
+    class="card-image open-viewer"
+    target="_blank">
     <img src="<%= p.thumbnail %>" alt="<%= p.name %>" loading="lazy">
     <div class="card-overlay">
       <div class="card-title"><%= p.name %></div>
     </div>
   </a>
+
   <div class="card-content">
     <p><span class="card-description"><%= p.description %></span></p>
     <p><span class="card-label">Địa điểm:</span> <%= p.location %></p>

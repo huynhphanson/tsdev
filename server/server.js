@@ -13,6 +13,7 @@ import authUserRoutes from './routes/auth.user.routes.js';
 import Project from './models/Project.js';
 import checkSharePermission from './middlewares/checkSharePermission.js';
 import modelsRoutes from './routes/api/models.routes.js';
+import viewerRoutes from './routes/viewer.routes.js'
 
 console.log('NODE_ENV =', process.env.NODE_ENV);
 
@@ -39,6 +40,9 @@ app.use(express.urlencoded({ extended: true }));
 app.use(checkSharePermission);
 // ✅ Cấu hình view engine và static
 configViewEngine(app);
+
+// viewer Routes
+app.use(viewerRoutes);
 
 // ✅ Auth & routes
 app.use(authAdminRoutes);

@@ -6,16 +6,15 @@ export async function loadConfig() {
     const res = await fetch(`${apiBase}/api/configs/${client}/${slug}`);
     
     if (!res.ok) {
-      // Chuyển hướng sang trang lỗi kèm client & slug
-      window.location.href = `/views/error.html?client=${client}&slug=${slug}`;
-      return; // ⛔ Dừng tại đây luôn, không throw
+      // ⛔ Redirect ngược về backend để render lỗi đúng (403 hoặc 404)
+      window.location.href = `/viewer/${client}/${slug}`;
+      return;
     }
 
     const config = await res.json();
     return config;
 
   } catch (err) {
-    // Không dùng res trong catch được → sửa fallback
     alert('Không thể kết nối tới máy chủ.');
     throw err;
   }

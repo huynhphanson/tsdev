@@ -5,6 +5,26 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Lỗi truy cập mô hình</title>
   <link rel="stylesheet" href="../css/error.css" />
+  <script type="module">
+    const params = new URLSearchParams(window.location.search);
+    const client = params.get('client');
+    const slug = params.get('slug');
+
+    const apiBase = import.meta.env.VITE_API_BASE || window.API_BASE; // fallback nếu không dùng Vite
+
+    if (client && slug) {
+      fetch(`http://localhost:8080/api/configs/${client}/${slug}`)
+        .then(res => {
+          if (res.ok) {
+            window.location.href = `/viewer/${client}/${slug}/`;
+          }
+        })
+        .catch(() => {
+          // ignore lỗi, vẫn ở trang error
+        });
+    }
+  </script>
+
 </head>
 <body>
   <div class="error-container">
@@ -12,30 +32,5 @@
     <p>Rất tiếc! Bạn không có quyền hoặc mô hình không tồn tại.</p>
     <a href="/" class="back-home">Quay về trang chủ</a>
   </div>
-
-  <script>
-    const query = new URLSearchParams(window.location.search);
-    const client = query.get('client');
-    const slug = query.get('slug');
-    const key = `retry-${client}-${slug}`;
-
-    if (client && slug && !sessionStorage.getItem(key)) {
-      sessionStorage.setItem(key, '1');
-      console.log('⏳ Retry:', key);
-
-      fetch(`http://localhost:8080/api/configs/${client}/${slug}`, {
-        method: 'GET',
-        credentials: 'include'
-      }).then(res => {
-        if (res.ok) {
-          window.location.href = `/viewer/${client}/${slug}`;
-        }
-      }).catch(() => {
-        // vẫn giữ nguyên ở trang lỗi
-      });
-    }
-  </script>
-
-
 </body>
 </html>

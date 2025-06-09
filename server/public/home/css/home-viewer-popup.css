@@ -1,0 +1,43 @@
+/* viewer-popup.css */
+.viewer-popup {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  padding: .8rem .8rem;
+  border-radius: 12px;
+  font-size: 1rem;
+  z-index: 10000;
+  opacity: 0;
+  transform: translateY(-20px);
+  animation: fadeInUp 0.4s ease-out forwards;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.4);
+  max-width: 300px;
+  line-height: 1.4;
+  word-break: break-word;
+}
+
+/* Fade-in animation */
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Error (lỗi quyền) */
+.viewer-popup.error {
+  background: #631b1b;
+  color: #ffdddd;
+}
+
+/* Warning (không tìm thấy, lỗi nhẹ) */
+.viewer-popup.warning {
+  background: #5c4500;
+  color: #ffe8b0;
+}
+
+/* Info (thông báo trung tính) */
+.viewer-popup.info {
+  background: hsl(210, 20%, 35%);
+  color: hsl(210, 100%, 85%);
+}

@@ -26,5 +26,5 @@ export default async function checkSharePermission(req, res, next) {
     return next();
   }
 
-  return res.status(403).render('errors/404');
+  return res.status(423).render('errors/423');
 }

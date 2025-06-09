@@ -1,5 +1,5 @@
 import { filterCards } from "./home-filter.js";
-import { initViewerAccessCheck } from "./checkViewerPermission.js";
+import { initViewerAccessCheck } from "./home-checkViewerPermission.js";
 
 document.addEventListener('DOMContentLoaded', () => {
   const searchBox = document.getElementById('searchBox');

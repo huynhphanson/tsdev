@@ -6,6 +6,7 @@
   <title>Quản lý mô hình 3D</title>
   <link rel="stylesheet" href="/admin/css/_admin.css" />
   <script src="https://kit.fontawesome.com/3f74ce293c.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sortablejs@1.15.0/Sortable.min.js"></script>
 </head>
 <body>
   <!-- Modal chỉnh sửa mô hình -->
@@ -13,6 +14,7 @@
 
   <div class="admin-tabs">
     <nav class="tab-nav">
+      <a href="/" class="tab-link">TSDEV</a>
       <a href="#models" class="tab-link active"><i class="fa-solid fa-cube"></i> Mô hình 3D</a>
       <a href="#users" class="tab-link"><i class="fa-solid fa-users"></i> Người dùng</a>
     </nav>
@@ -35,12 +37,16 @@
     const panels = document.querySelectorAll('.tab-panel');
     tabs.forEach(tab => {
       tab.addEventListener('click', e => {
-        e.preventDefault();
-        tabs.forEach(t => t.classList.remove('active'));
-        panels.forEach(p => p.classList.remove('active'));
-        tab.classList.add('active');
-        const target = document.querySelector(tab.getAttribute('href'));
-        if (target) target.classList.add('active');
+        const href = tab.getAttribute('href');
+        if (href.startsWith('#')) {
+          e.preventDefault();
+          tabs.forEach(t => t.classList.remove('active'));
+          panels.forEach(p => p.classList.remove('active'));
+          tab.classList.add('active');
+          const target = document.querySelector(href);
+          if (target) target.classList.add('active');
+        }
+        // nếu href === '/' thì không chặn → sẽ chuyển về trang chủ đúng
       });
     });
   </script>

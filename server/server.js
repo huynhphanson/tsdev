@@ -18,7 +18,7 @@ import viewerRoutes from './routes/viewer.routes.js'
 console.log('NODE_ENV =', process.env.NODE_ENV);
 
 const app = express();
-const PORT = process.env.PORT || 3008;
+const PORT = process.env.PORT || 3000;
 
 // ✅ Kết nối DB
 connectProjectDB();

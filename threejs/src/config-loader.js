@@ -2,11 +2,22 @@ export async function loadConfig() {
   const { client, slug } = parseViewerURL();
   const apiBase = import.meta.env.VITE_API_BASE;
 
+  // ⛔ Nếu thiếu client/slug thì chuyển về trang chủ hoặc backend
+  if (!client || !slug) {
+    if (import.meta.env.DEV) {
+      window.location.href = 'http://localhost:8080';
+      
+    } else {
+      window.location.href = '/';
+    }
+    return;
+  }
+
   try {
     const res = await fetch(`${apiBase}/api/configs/${client}/${slug}`);
     
     if (!res.ok) {
-      // ⛔ Redirect ngược về backend để render lỗi đúng (403 hoặc 404)
+      // Chuyển về viewer chỉ khi có client/slug rõ ràng
       window.location.href = `/viewer/${client}/${slug}`;
       return;
     }
@@ -19,7 +30,6 @@ export async function loadConfig() {
     throw err;
   }
 }
-
 
 export function parseViewerURL() {
   const pathSegments = window.location.pathname.split('/').filter(Boolean);

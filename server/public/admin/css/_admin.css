@@ -2,6 +2,7 @@
 @import 'admin-TabModels-right.css';
 @import 'admin-editModel.css';
 @import 'admin-TabUsers.css';
+@import 'admin-sortModels.css';
 
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;

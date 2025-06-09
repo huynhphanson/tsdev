@@ -123,4 +123,16 @@ router.patch('/:client/:slug/client-access', async (req, res) => {
   res.json({ clientAccess: project.clientAccess });
 });
 
+// Sort Order Cards
+router.patch('/order', async (req, res) => {
+  const { order } = req.body;
+  if (!Array.isArray(order)) return res.sendStatus(400);
+
+  await Promise.all(order.map((id, index) =>
+    Project.findByIdAndUpdate(id, { orderIndex: index })
+  ));
+
+  res.sendStatus(200);
+});
+
 export default router;

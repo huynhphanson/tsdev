@@ -1,0 +1,6 @@
+.sortable-ghost {
+  opacity: 0.4;
+  transform: scale(0.97);
+  border: 2px dashed #4caf50;
+  transition: all 0.2s ease;
+}

@@ -58,7 +58,7 @@ app.use('/api/users', userApiRoutes);
 
 // ✅ Trang chủ
 app.get('/', async (req, res) => {
-  const projects = await Project.find().sort({ uploadedAt: -1 });
+  const projects = await Project.find().sort({ orderIndex: 1, uploadedAt: -1 });
   res.render('home/index', { 
     projects,
     userClient: req.session?.userClient || null,

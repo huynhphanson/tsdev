@@ -10,7 +10,8 @@ const projectSchema = new mongoose.Schema({
   viewerUrl: String,
   uploadedAt: { type: Date, default: Date.now },
   shared: { type: Boolean, default: true },
-  clientAccess: { type: Boolean, default: false }
+  clientAccess: { type: Boolean, default: false },
+  orderIndex: { type: Number, default: 0 },
 });
 
 export default mongoose.model('Project', projectSchema);

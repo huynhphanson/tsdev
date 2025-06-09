@@ -5,6 +5,7 @@ import { setupClientSelect } from './admin-clientSelect.js';
 import { setupEditModel } from './admin-editModel.js';
 import { setupCreateProject } from './admin-createProject.js';
 import { setupUserDelete } from './admin-deleteUser.js';
+import { initSortableGallery } from './admin-sortModels.js';
 
 window.deleteModel = deleteModel;
 
@@ -26,6 +27,8 @@ document.addEventListener('DOMContentLoaded', () => {
   setupCreateProject();
 
   setupUserDelete();
+  
+  initSortableGallery();
 });
 
 document.querySelectorAll('.client-select').forEach(select => {

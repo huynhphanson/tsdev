@@ -6,6 +6,7 @@ dotenv.config();
 import { configViewEngine } from './configs/configViewEngine.js';
 import connectProjectDB from './configs/connectProjectDB.js';
 import adminRoutes from './routes/admin.routes.js';
+import modelMetaRoutes from './routes/api/modelMeta.routes.js'
 import projectApiRoutes from './routes/api/projects.routes.js';
 import userApiRoutes from './routes/api/users.routes.js';
 import authAdminRoutes from './routes/auth.admin.routes.js';
@@ -50,6 +51,7 @@ app.use(authUserRoutes);
 
 // Models
 app.use('/api', modelsRoutes);
+app.use('/api/model-meta', modelMetaRoutes);
 
 // ✅ Admin & API
 app.use('/admin', adminRoutes);

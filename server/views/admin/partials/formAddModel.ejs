@@ -2,8 +2,6 @@
 <form id="modelForm" enctype="multipart/form-data">
   <label>Khách hàng:</label>
   <select name="client" id="clientSelect">
-    <option value="general" selected>GENERAL</option>
-    <option value="t27">T27</option>
     <option value="__new">+ Thêm khách hàng mới</option>
   </select>
   <input
@@ -14,16 +12,20 @@
   />
 
   <label>Tên mô hình:</label>
-  <input type="text" name="name" />
+  <input type="text" name="name" autocomplete="off"/>
 
   <label>Slug mô hình:</label>
-  <input type="text" name="slug" placeholder="ví dụ: cau-song-cho" />
+  <div class="dropdown-wrapper">
+    <input type="text" name="slug" id="slugInput" placeholder="ví dụ: cau-song-cho" autocomplete="off" />
+    <ul id="slugDropdown" class="dropdown-list"></ul>
+  </div>
+
 
   <label>Mô tả:</label>
   <textarea name="description" rows="3"></textarea>
 
   <label>Vị trí:</label>
-  <input type="text" name="location" />
+  <input type="text" name="location" autocomplete="off"/>
 
   <label>Thumbnail:</label>
   <input type="file" name="thumbnail" accept="image/*" />

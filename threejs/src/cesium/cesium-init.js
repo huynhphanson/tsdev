@@ -1,7 +1,7 @@
 export function initCesium() {
   const cesiumContainer = document.getElementById('cesium-container');
 
-  Cesium.Ion.defaultAccessToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiIxMWM2NzhhMS04Mjg1LTQ5NDQtOGMyMS1iNDE5NWEwMzc1Y2MiLCJpZCI6MjgxMjAyLCJpYXQiOjE3NDExNDM4ODd9.m4Y1TPGxWchdX4DAN61hT7MiBCUxPDFq5OAmkPIgQbk";
+  Cesium.Ion.defaultAccessToken = import.meta.env.VITE_CESIUM_TOKEN;
 
   const cesiumViewer = new Cesium.Viewer(cesiumContainer, {
     useDefaultRenderLoop: false,

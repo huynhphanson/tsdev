@@ -1,35 +1,36 @@
 export async function loadConfig() {
   const { client, slug } = parseViewerURL();
   const apiBase = import.meta.env.VITE_API_BASE;
+  const fallbackURL = import.meta.env.VITE_FALLBACK_URL;
 
-  // ⛔ Nếu thiếu client/slug thì chuyển về trang chủ hoặc backend
   if (!client || !slug) {
-    if (import.meta.env.DEV) {
-      window.location.href = 'http://localhost:8080';
-      
-    } else {
-      window.location.href = '/';
-    }
+    window.location.href = fallbackURL;
     return;
   }
 
   try {
-    const res = await fetch(`${apiBase}/api/configs/${client}/${slug}`);
-    
-    if (!res.ok) {
-      // Chuyển về viewer chỉ khi có client/slug rõ ràng
-      window.location.href = `/viewer/${client}/${slug}`;
+    const res = await fetch(`${apiBase}/api/configs/${client}/${slug}`, {
+      credentials: 'include',
+    });
+
+    if ([403, 404, 423].includes(res.status)) {
+      window.location.href = `${apiBase}/viewer/${client}/${slug}`;
       return;
     }
 
-    const config = await res.json();
-    return config;
+    if (!res.ok) {
+      window.location.href = fallbackURL;
+      return;
+    }
+
+    return await res.json();
 
   } catch (err) {
-    alert('Không thể kết nối tới máy chủ.');
+    alert('Không thể kết nối tới máy chủ!');
     throw err;
   }
 }
+
 
 export function parseViewerURL() {
   const pathSegments = window.location.pathname.split('/').filter(Boolean);
@@ -40,12 +41,4 @@ export function parseViewerURL() {
     client: pathSegments[viewerIndex + 1],
     slug: pathSegments[viewerIndex + 2],
   };
-}
-
-function handleError(status) {
-  if ([403, 404].includes(status)) {
-    window.location.href = '/views/error.html';
-  } else {
-    alert('Lỗi không xác định.');
-  }
 }

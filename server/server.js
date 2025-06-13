@@ -17,6 +17,7 @@ import modelsRoutes from './routes/api/models.routes.js';
 import viewerRoutes from './routes/viewer.routes.js'
 
 console.log('NODE_ENV =', process.env.NODE_ENV);
+console.log('FRONTEND =', process.env.FRONTEND);
 
 const app = express();
 const PORT = process.env.PORT || 3000;

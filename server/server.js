@@ -6,6 +6,7 @@ dotenv.config();
 import { configViewEngine } from './configs/configViewEngine.js';
 import corsOptions from './configs/corsConfig.js';
 import connectProjectDB from './configs/connectProjectDB.js';
+import homeRoutes from './routes/home.routes.js'
 import adminRoutes from './routes/admin.routes.js';
 import modelMetaRoutes from './routes/api/modelMeta.routes.js'
 import projectApiRoutes from './routes/api/projects.routes.js';
@@ -54,14 +55,7 @@ app.use('/api/projects', projectApiRoutes);
 app.use('/api/users', userApiRoutes);
 
 // ✅ Trang chủ
-app.get('/', async (req, res) => {
-  const projects = await Project.find().sort({ orderIndex: 1, uploadedAt: -1 });
-  res.render('home/index', { 
-    projects,
-    userClient: req.session?.userClient || null,
-    username: req.session?.username || null
-  });
-});
+app.get('/', homeRoutes);
 
 // ✅ Bắt tất cả các route không khớp
 app.use((req, res) => {

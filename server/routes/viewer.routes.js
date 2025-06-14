@@ -22,26 +22,18 @@ router.head('/viewer/:client/:slug', async (req, res) => {
 
 router.get('/viewer/:client/:slug', async (req, res) => {
   const { client, slug } = req.params;
-
   try {
     const project = await Project.findOne({ client, slug });
-
     if (!project) {
-      return res.status(404).render('errors/404', {
-        message: `Không tìm thấy mô hình "${slug}" thuộc client "${client}".`
-      });
+      return res.status(404).render('errors/404');
     }
 
     if (project.locked) {
-      return res.status(423).render('errors/423', {
-        message: `Mô hình "${slug}" đang được phát triển.`
-      });
+      return res.status(423).render('errors/423');
     }
 
     if (!project.shared && !req.session?.userClient) {
-      return res.status(403).render('errors/403', {
-        message: `Bạn không có quyền truy cập mô hình "${slug}".`
-      });
+      return res.status(403).render('errors/403');
     }
 
     // ✅ Nếu hợp lệ thì redirect sang frontend

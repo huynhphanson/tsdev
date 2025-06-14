@@ -1,0 +1,30 @@
+services:
+  - type: web
+    name: tsdev-backend
+    env: node
+    rootDir: server
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 10000
+      - key: MONGODB_URI
+        sync: false
+      - key: SESSION_SECRET
+        sync: false
+      - key: FRONTEND
+        value: https://tsdev-frontend.onrender.com/
+      - key: FRONTEND_CORS
+        value: https://tsdev-frontend.onrender.com/
+
+  - type: web
+    name: tsdev-frontend
+    env: static
+    rootDir: threejs
+    buildCommand: npm run build
+    staticPublishPath: dist
+    envVars:
+      - key: VITE_API_BASE
+        value: https://tsdev-backend.onrender.com

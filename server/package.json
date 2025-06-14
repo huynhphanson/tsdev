@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "dotenv -e .env.dev nodemon server.js",
-    "start": "dotenv -e .env.prod node server.js"
+    "start": "node server.js"
   },
   "keywords": [],
   "author": "",

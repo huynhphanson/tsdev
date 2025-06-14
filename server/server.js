@@ -4,6 +4,7 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 import { configViewEngine } from './configs/configViewEngine.js';
+import corsOptions from './configs/corsConfig.js';
 import connectProjectDB from './configs/connectProjectDB.js';
 import adminRoutes from './routes/admin.routes.js';
 import modelMetaRoutes from './routes/api/modelMeta.routes.js'
@@ -24,14 +25,7 @@ const PORT = process.env.PORT || 3000;
 
 // ✅ Kết nối DB
 connectProjectDB();
-app.use(cors({
-  origin: [
-    'http://localhost:5173',
-    'http://localhost:4173'
-  ],
-  credentials: true
-}));
-
+app.use(cors(corsOptions));
 
 
 // ✅ Middleware cơ bản

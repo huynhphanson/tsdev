@@ -1,4 +1,5 @@
 // server/routes/api/modelMeta.routes.js
+// Duyệt qua các clients và slug tương ứng để tạo mô hình trong admin
 import express from 'express';
 import fs from 'fs';
 import { fileURLToPath } from 'url';
@@ -9,7 +10,6 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const CONFIGS_DIR = path.join(__dirname, '../../public/configs');
-console.log(CONFIGS_DIR);
 router.get('/clients', (req, res) => {
   const result = {};
 
